@@ -30,6 +30,7 @@ document.getElementById('submit').addEventListener('click', function (event) {
       const user = userCredential.user;
       alert('Inicio de sesión exitoso');
       // Redirigir o hacer cualquier otra cosa después del inicio de sesión
+      window.location.href = "dashbord.html"
     })
     .catch((error) => {
       const errorCode = error.code;
