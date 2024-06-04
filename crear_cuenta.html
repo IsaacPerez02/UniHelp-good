@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create account</title>
+    <link rel="stylesheet" href="styles/logins_styles.css">
+    <script type="module" src="/scripts/create.js" defer></script>
+</head>
+<body>
+    <a href="bienvenida.html" class="back-button">Back</a>
+    <h1>Create account</h1>
+    <form>
+        <input type="text" id="username" placeholder="User name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+        <input type="password" id="confirm_password" placeholder="Confirm password" required>
+        <select type="type" id="type" name="role" required>
+            <option value="" disabled selected>Select your role</option>
+            <option value="Estudiante">Student</option>
+            <option value="Profesor">Teacher</option>
+        </select>
+        <button class="button" id="submit">Create Account</button>
+    </form>
+</body>
+</html>

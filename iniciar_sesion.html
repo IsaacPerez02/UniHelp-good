@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <link rel="stylesheet" href="/styles/logins_styles.css">
+    <script type="module" src="/scripts/login.js" defer></script>
+</head>
+<body>
+    <a href="bienvenida.html" class="back-button">Back</a>
+    <h1>Log in</h1>
+    <p id="errorMessage" class="error-message" style="display: none;"></p>
+    <form id="loginForm">
+        <input type="email" id="email" placeholder="Email or Username" required>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+        <button id="submit" class="button">Log In</button>
+    </form>
+</body>
+</html>
