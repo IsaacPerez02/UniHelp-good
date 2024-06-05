@@ -1,6 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
 
 // Tu configuración de Firebase
 const firebaseConfig = {
@@ -17,25 +19,34 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 document.getElementById('submit').addEventListener('click', function (event) {
-    event.preventDefault();
-    
-    const username = document.getElementById('username').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const type = document.getElementById('type').value;
+  event.preventDefault();
   
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        alert('Inicio de sesión exitoso');
-        // Redirigir o hacer cualquier otra cosa después del inicio de sesión
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(errorMessage);
+  const username = document.getElementById('username').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const type = document.getElementById('type').value;
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      
+      // Agregar información adicional del usuario a Firestore
+      return addDoc(collection(db, "user"), {
+        nickname: username,
+        email: email,
+      });
+    })
+    .then(() => {
+      alert('Inicio de sesión exitoso');
+      window.location.href = "dashbord.html";
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error('Error:', errorCode, errorMessage);
+      alert(errorMessage);
     });
 });
