@@ -507,13 +507,122 @@ header .user-info .username {
 
 /* Botones de editar y eliminar alertas */
 .edit-alert-button, .delete-alert-button {
-    background-color: #00B13C; /* Color de fondo para editar */
-    color: white; /* Color del texto */
-    padding: 10px 20px; /* Relleno alrededor del texto */
-    border-radius: 5px; /* Bordes redondeados */
-    border: none; /* Sin bordes */
-    cursor: pointer; /* Cursor en forma de mano al pasar el ratón */
-    transition: background-color 0.3s; /* Transición suave del color de fondo */
+    background-color: #00B13C;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-right: 10px; /* Espacio entre botones */
 }
 
-/* Asegúrate de ajustar los nombres de las clases y los selectores según corresponda a tu estructura HTML. */
+.edit-alert-button:hover {
+    background-color: #019231;
+}
+
+.delete-alert-button:hover {
+    background-color: #DC143C;
+}
+
+.delete-alert-button {
+    background-color: #c90028;
+}
+
+
+
+/* Icono de calendario */
+.calendar-icon {
+    font-size: 1.2em;
+    margin-left: 5px;
+}
+<<<<<<< HEAD
+
+.chat-title {
+    background-color: #333; /* Color de fondo para el título */
+    padding: 10px; /* Relleno alrededor del título */
+    text-align: center; /* Centrar el título */
+}
+
+.chat-title h2 {
+    color: white; /* Color del texto del título */
+    margin: 0; /* Eliminar el margen por defecto del título */
+}
+
+/* Estilos para el encabezado del chat */
+.chat-header {
+    background-color: #444;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.chat-header input {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+}
+
+/* Estilos para los mensajes del chat */
+.chat-messages {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.message {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.message-content {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 80%;
+}
+
+.timestamp {
+    display: block;
+    text-align: right;
+    color: #999;
+    margin-top: 5px;
+}
+
+/* Estilos para el área de entrada del chat */
+.chat-input {
+    display: flex;
+    padding: 10px;
+    background-color: #333;
+}
+
+.chat-input input {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+}
+
+.chat-input button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #00B13C;
+    color: white;
+    cursor: pointer;
+}
+
+/* Asegúrate de ajustar los estilos según tus necesidades y la paleta de colores de tu sitio. */
+=======
+>>>>>>> e54b6b37918981fb3f454cb7c7316324a6d9fde9
