@@ -16,7 +16,7 @@ function setupNavigationLinks() {
         link.addEventListener('click', event => {
             event.preventDefault();
             const target = event.target.getAttribute('href');
-            navigateToPage(target); // Nuevo: Función para navegar a la página
+            navigateToPage(target);
         });
     });
 }
@@ -55,7 +55,7 @@ function addNewAlert(title, content, date) {
         <button class="delete-alert-button">Delete</button>
     `;
     document.querySelector('.alerts').appendChild(newAlert);
-    setupAlertActions();
+    setupAlertActions(); // Ensures new alert has event listeners
 }
 
 function editAlert(alertElement) {
@@ -71,17 +71,22 @@ function editAlert(alertElement) {
     }
 }
 
+function deleteAlert(alertElement) {
+    if (confirm('Are you sure you want to delete this alert?')) {
+        alertElement.remove();
+    }
+}
+
 function setupAlertActions() {
     const alertItems = document.querySelectorAll('.alert-item');
     alertItems.forEach(alertItem => {
         const editButton = alertItem.querySelector('.edit-alert-button');
         const deleteButton = alertItem.querySelector('.delete-alert-button');
 
-        editButton.addEventListener('click', () => editAlert(alertItem)); // Modificado para pasar el elemento de alerta
+        editButton.addEventListener('click', () => editAlert(alertItem));
         deleteButton.addEventListener('click', () => deleteAlert(alertItem));
     });
 }
-
 
 function setupSearchInput() {
     const searchInput = document.querySelector('header input');
@@ -113,6 +118,8 @@ function setupAddNoteButton() {
     addNoteButton.addEventListener('click', addNewNote);
 }
 
+
+
 function addNewNote() {
     const title = prompt('Enter note title:');
     const description = prompt('Enter note description:');
@@ -127,7 +134,7 @@ function addNewNote() {
             <button class="delete-note-button">Delete</button>
         `;
         document.querySelector('.notes').appendChild(newNote);
-        setupNoteActions();
+        setupNoteActions(); // Asegura que la nueva nota tenga los eventos de click
     } else {
         alert('Please enter both title and description for the note.');
     }
@@ -157,23 +164,6 @@ function setupNoteActions() {
     });
 }
 
-function setupAlertActions() {
-    const alertItems = document.querySelectorAll('.alert-item');
-    alertItems.forEach(alertItem => {
-        const editButton = alertItem.querySelector('.edit-alert-button');
-        const deleteButton = alertItem.querySelector('.delete-alert-button');
-
-        editButton.addEventListener('click', () => {
-            const title = alertItem.querySelector('h3').textContent;
-            const date = alertItem.querySelectorAll('p')[0].textContent;
-            const content = alertItem.querySelectorAll('p')[1].textContent;
-            editAlert(alertItem, title, content, date);
-        });
-        
-        deleteButton.addEventListener('click', () => deleteAlert(alertItem));
-    });
-}
-
 function setupLogoutButton() {
     const logoutButton = document.querySelector('.logout');
     logoutButton.addEventListener('click', () => {
@@ -194,3 +184,7 @@ function setupProfileSummaryToggle() {
         profileSummary.classList.remove('open');
     });
 }
+
+// Llama a setupNoteActions y setupAlertActions al final
+setupNoteActions();
+setupAlertActions();
