@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniHelp Forum - Probability</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script type="module" src="scripts/username.js" defer></script>
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js'></script>
+</head>
+<body>
+<div class="container">
+    <aside class="sidebar">
+        <div class="logo-container">
+            <img src="pictures/logo.png" alt="Logo" class="logo-img">
+            <span class="logo-text">UniHelp</span>
+        </div>
+        <div class="user-container">
+            <img src="pictures/student.png" alt="User" class="user-img">
+            <div class="user-info">
+                <h1 id="username" class="username"></h1>
+                <span class="user-role">Student</span>
+            </div>
+            <button class="config"><i class="fas fa-cog"></i></button>
+            <button class="logout"><i class="fas fa-sign-out-alt"></i></button>
+        </div>
+        <nav>
+            <span class="alerts-title">Content</span>
+            <ul>
+                <li><a href="dashbord.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="mycourses.html"><i class="fas fa-book"></i> My courses</a></li>
+                <li><a href="foro.html"><i class="fas fa-comments"></i> Forums</a></li>
+                <li><a href="chat.html" class="nav-link"><i class="fas fa-comment-alt"></i> Chat</a></li>
+                <li><a href="myprofile.html"><i class="fas fa-user"></i> My profile</a></li>
+            </ul>
+        </nav>
+        <div class="alerts-container">
+            <span class="alerts-title">Last Alerts</span>
+            <div class="alert">
+                <img src="pictures/alert.png" alt="Alert">
+                <span>Calculus</span>
+            </div>
+            <div class="alert">
+                <img src="pictures/alert.png" alt="Alert">
+                <span>Calculus</span>
+            </div>
+        </div>
+        <div class="info-container">
+            <span class="alerts-title">Information</span>
+            <div class="info">
+                <span class="info-title">My doubts</span>
+                <span class="info-count">12</span>
+            </div>
+            <div class="info">
+                <span class="info-title">My forums</span>
+                <span class="info-count">5</span>
+            </div>
+        </div>
+        <div class="premium">
+            <button>Activate Premium</button>
+        </div>
+    </aside>
+    <div class="main-content">
+        <div class="course-detail">
+            <div class="course-header">
+                <img src="pictures/probabilidad.png" alt="Probability" class="course-img-large">
+                <h1>Probability</h1>
+                <p>Study of the principles and applications of probability.</p>
+            </div>
+            <div class="course-blocks">
+                <div class="course-block">
+                    <h2>Course Content</h2>
+                    <ul>
+                        <li>Unit 1: Introduction to Probability</li>
+                        <li>Unit 2: Probability Distributions</li>
+                        <li>Unit 3: Conditional Probability</li>
+                        <li>Unit 4: Expected Value and Variance</li>
+                        <li>Unit 5: Central Limit Theorem</li>
+                    </ul>
+                </div>
+                <div class="course-block">
+                    <h2>Additional Resources</h2>
+                    <ul>
+                        <li><a href="#">Probability Practice Problems</a></li>
+                        <li><a href="#">Probability Textbook</a></li>
+                        <li><a href="#">Online Probability Simulations</a></li>
+                    </ul>
+                </div>
+                <div class="course-block">
+                    <h2>Course Forum</h2>
+                    <a href="foro_probabilidad.html" class="enter-course-btn">Go to Course Forum</a>
+                    <h2>Courses</h2>
+                    <button onclick="window.location.href = 'mycourses.html';">Go Back to Courses</button>
+                </div>
+                <div class="course-block">
+                    <h2>Course Calendar</h2>
+                    <p>Check out important dates and deadlines for this course.</p>
+                    <div id='calendar'></div>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            var calendarEl = document.getElementById('calendar');
+                            var calendar = new FullCalendar.Calendar(calendarEl, {
+                                initialView: 'dayGridMonth',
+                                locale: 'es',
+                                events: [
+                                    // Sample events, replace with your own data
+                                    {
+                                        title: 'Lecture',
+                                        start: '2024-06-10T10:00:00',
+                                        end: '2024-06-10T12:00:00',
+                                        backgroundColor: '#008080',
+                                        borderColor: '#008080'
+                                    },
+                                    {
+                                        title: 'Assignment Due',
+                                        start: '2024-06-15',
+                                        backgroundColor: '#4682B4',
+                                        borderColor: '#4682B4'
+                                    }
+                                ]
+                            });
+                            calendar.render();
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

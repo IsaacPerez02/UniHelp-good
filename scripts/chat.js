@@ -109,6 +109,9 @@ async function sendMessage() {
                     date: timestamp
                 });
 
+                // Imprimir el mensaje en el chat
+                addMessage(message, 'user', nickname);
+
                 chatInput.value = ''; // Limpiar el campo de entrada después de enviar el mensaje
             } else {
                 console.log("Nickname not found!");
@@ -118,6 +121,7 @@ async function sendMessage() {
         }
     }
 }
+
 
 // Event listener para enviar un mensaje cuando se presiona Enter
 chatInput.addEventListener('keypress', (event) => {

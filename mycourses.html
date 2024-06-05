@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UniHelp Forum - Calculus</title>
+    <title>UniHelp Forum - My Courses</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script type="module" src="scripts/username.js" defer></script>
+    <script src="scripts/filterCourses.js" defer></script>
 </head>
 <body>
 <div class="container">
@@ -38,11 +39,11 @@
             <span class="alerts-title">Last Alerts</span>
             <div class="alert">
                 <img src="pictures/alert.png" alt="Alert">
-                <span>Calculo</span>
+                <span>Calculus</span>
             </div>
             <div class="alert">
                 <img src="pictures/alert.png" alt="Alert">
-                <span>Calculo</span>
+                <span>Calculus</span>
             </div>
         </div>
         <div class="info-container">
@@ -61,11 +62,48 @@
         </div>
     </aside>
     <div class="main-content">
-        <header>
-            <input type="text" placeholder="Search...">
-        </header>
-        <!-- Main content goes here -->
+        <div class="courses-container">
+            <header>
+                <input type="text" id="courseSearch" placeholder="Search">
+                <button class="new-entry">New Entry</button>
+            </header>
+            <div class="course-list">
+                <div class="course-card">
+                    <img src="pictures/calculo.jfif" alt="Calculus" class="course-img">
+                    <div class="course-info">
+                        <h2>Calculus I</h2>
+                        <p>Introduction to the basic concepts of differential and integral calculus.</p>
+                        <a href="curso_calculo.html" class="enter-course-btn">Enter Course</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="pictures/probabilidad.png" alt="Probability" class="course-img">
+                    <div class="course-info">
+                        <h2>Probability</h2>
+                        <p>Study of the principles and applications of probability.</p>
+                        <a href="curso_probabilidad.html" class="enter-course-btn">Enter Course</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="pictures/estadistica.jpg" alt="Statistics" class="course-img">
+                    <div class="course-info">
+                        <h2>Statistics</h2>
+                        <p>Analysis of data and applied statistical methods.</p>
+                        <a href="curso_estadistica.html" class="enter-course-btn">Enter Course</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="pictures/disenoalgoritmos.jfif" alt="Algorithm Design" class="course-img">
+                    <div class="course-info">
+                        <h2>Algorithm Design</h2>
+                        <p>Introduction to methods and techniques for designing efficient algorithms.</p>
+                        <a href="curso_diseno_algoritmos.html" class="enter-course-btn">Enter Course</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>
 </html>
+
