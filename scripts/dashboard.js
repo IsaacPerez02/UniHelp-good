@@ -137,7 +137,7 @@ function addNewNote() {
 function saveNote(noteElement) {
     const title = noteElement.querySelector('h3').textContent;
     const content = noteElement.querySelector('p').textContent;
-    alert(Note saved with title: ${title} and content: ${content});
+    alert(`Note saved with title: ${title} and content: ${content}`);
 }
 
 function deleteNote(noteElement) {
