@@ -358,3 +358,74 @@ nav ul li a:hover {
 .new-response button:hover {
     background-color: #00B13C;
 }
+
+/* Estilos para el encabezado del contenido principal */
+.header-container {
+    background-color: #444; /* Color de fondo */
+    padding: 10px; /* Relleno alrededor del contenido */
+    display: flex; /* Usa flexbox para alinear elementos */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+}
+
+/* Estilos para la sección del calendario */
+.calendar {
+    background-color: #333; /* Color de fondo */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Relleno alrededor del contenido */
+    margin-bottom: 20px; /* Margen debajo del calendario */
+    /* Añade más estilos según sea necesario */
+}
+
+/* Estilos para las notas */
+.notes {
+    background-color: #333; /* Color de fondo */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Relleno alrededor del contenido */
+    margin-bottom: 20px; /* Margen debajo de las notas */
+    /* Añade más estilos según sea necesario */
+}
+
+/* Estilos para los botones de añadir y guardar notas */
+.add-note-button, .save-note-button {
+    background-color: #00B13C; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Relleno alrededor del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    border: none; /* Sin bordes */
+    cursor: pointer; /* Cursor en forma de mano al pasar el ratón */
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+}
+
+/* Estilos para el botón de eliminar notas */
+.delete-note-button {
+    background-color: #c90028; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Relleno alrededor del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    border: none; /* Sin bordes */
+    cursor: pointer; /* Cursor en forma de mano al pasar el ratón */
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+}
+
+/* Estilos para los elementos de alerta */
+.alert-item {
+    background-color: #444; /* Color de fondo */
+    padding: 15px; /* Relleno alrededor del contenido */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 10px; /* Margen debajo de cada alerta */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+}
+
+/* Estilos para los botones de editar y eliminar alertas */
+.edit-alert-button, .delete-alert-button {
+    background-color: #00B13C; /* Color de fondo para editar */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Relleno alrededor del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    border: none; /* Sin bordes */
+    cursor: pointer; /* Cursor en forma de mano al pasar el ratón */
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+}
+
+/* Asegúrate de ajustar los nombres de las clases y los selectores según corresponda a tu estructura HTML. */
