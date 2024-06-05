@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script type="module" src="scripts/username.js" defer></script>
+    <script type="module" src="scripts/chat.js" defer></script>
 </head>
 <body>
 <div class="container">
@@ -62,9 +63,22 @@
     </aside>
     <div class="main-content">
         <header>
-            <input type="text" placeholder="Search...">
+            <input type="text" class="chat-input-field" placeholder="Search...">
         </header>
-        <!-- Main content goes here -->
+        <!-- Main content - Chat structure -->
+        <div class="main-content">
+            <div class="chat-title">
+                <img src="pictures/logo.png" alt="Avatar" class="user-avatar">
+                <h2>Chat de Cálculo</h2>
+            </div>
+            <div class="chat-messages">
+                
+            </div>
+            <div class="chat-input">
+                <input type="text" class="chat-input-field" placeholder="Escribe algo...">
+                <button type="button" class="send-message-btn">Enviar</button>
+            </div>
+        </div>
     </div>
 </div>
 </body>

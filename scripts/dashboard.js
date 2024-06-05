@@ -16,9 +16,13 @@ function setupNavigationLinks() {
         link.addEventListener('click', event => {
             event.preventDefault();
             const target = event.target.getAttribute('href');
-            window.location.href = target;
+            navigateToPage(target); // Nuevo: Función para navegar a la página
         });
     });
+}
+
+function navigateToPage(target) {
+    window.location.href = target;
 }
 
 function initializeCalendar() {
@@ -54,21 +58,30 @@ function addNewAlert(title, content, date) {
     setupAlertActions();
 }
 
-function editAlert(alertElement, oldTitle, oldContent, oldDate) {
-    const newTitle = prompt('Edit alert title:', oldTitle);
-    const newContent = prompt('Edit alert content:', oldContent);
+function editAlert(alertElement) {
+    const title = alertElement.querySelector('h3');
+    const content = alertElement.querySelectorAll('p')[1];
+
+    const newTitle = prompt('Edit alert title:', title.textContent);
+    const newContent = prompt('Edit alert content:', content.textContent);
+
     if (newTitle && newContent) {
-        alertElement.querySelector('h3').textContent = newTitle;
-        const paragraphs = alertElement.querySelectorAll('p');
-        paragraphs[1].textContent = newContent;
+        title.textContent = newTitle;
+        content.textContent = newContent;
     }
 }
 
-function deleteAlert(alertElement) {
-    if (confirm('Are you sure you want to delete this alert?')) {
-        alertElement.remove();
-    }
+function setupAlertActions() {
+    const alertItems = document.querySelectorAll('.alert-item');
+    alertItems.forEach(alertItem => {
+        const editButton = alertItem.querySelector('.edit-alert-button');
+        const deleteButton = alertItem.querySelector('.delete-alert-button');
+
+        editButton.addEventListener('click', () => editAlert(alertItem)); // Modificado para pasar el elemento de alerta
+        deleteButton.addEventListener('click', () => deleteAlert(alertItem));
+    });
 }
+
 
 function setupSearchInput() {
     const searchInput = document.querySelector('header input');
@@ -101,22 +114,30 @@ function setupAddNoteButton() {
 }
 
 function addNewNote() {
-    const newNote = document.createElement('div');
-    newNote.classList.add('note-item');
-    newNote.innerHTML = `
-        <h3 contenteditable="true">New Note</h3>
-        <p contenteditable="true">New note content</p>
-        <button class="save-note-button">Save</button>
-        <button class="delete-note-button">Delete</button>
-    `;
-    document.querySelector('.notes').appendChild(newNote);
-    setupNoteActions();
+    const title = prompt('Enter note title:');
+    const description = prompt('Enter note description:');
+    
+    if (title && description) {
+        const newNote = document.createElement('div');
+        newNote.classList.add('note-item');
+        newNote.innerHTML = `
+            <h3 contenteditable="true">${title}</h3>
+            <p contenteditable="true">${description}</p>
+            <button class="save-note-button">Save</button>
+            <button class="delete-note-button">Delete</button>
+        `;
+        document.querySelector('.notes').appendChild(newNote);
+        setupNoteActions();
+    } else {
+        alert('Please enter both title and description for the note.');
+    }
 }
+
 
 function saveNote(noteElement) {
     const title = noteElement.querySelector('h3').textContent;
     const content = noteElement.querySelector('p').textContent;
-    alert(`Note saved with title: ${title} and content: ${content}`);
+    alert(Note saved with title: ${title} and content: ${content});
 }
 
 function deleteNote(noteElement) {

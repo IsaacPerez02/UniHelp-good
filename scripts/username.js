@@ -41,6 +41,6 @@ onAuthStateChanged(auth, (user) => {
         read_data(user);
     } else {
         // No hay usuario autenticado, redirigir a la página de inicio de sesión
-        window.location.href = "login.html";
+        window.location.href = "iniciar_sesion.html";
     }
 });
