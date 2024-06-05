@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script type="module" src="scripts/username.js" defer></script>
+    <script type="module" src="scripts/new_threads.js" defer></script>
 </head>
 <body>
 <div class="container">
@@ -67,15 +68,16 @@
         <div class="main-content">
             <div class="form-container">
                 <h2>Nueva Pregunta</h2>
-                <form action="#">
+                <form id="new-question-form" action="#">
                     <label for="titulo">Título:</label>
                     <input type="text" id="titulo" name="titulo" placeholder="Ingrese el título de la pregunta..." required>
-    
+                
                     <label for="descripcion">Descripción:</label>
                     <textarea id="descripcion" name="descripcion" placeholder="Ingrese la descripción de la pregunta..." required></textarea>
-    
+                
                     <button type="submit">Enviar</button>
                 </form>
+                
             </div>
         </div>
     </div>

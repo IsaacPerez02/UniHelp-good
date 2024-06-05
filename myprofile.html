@@ -6,7 +6,6 @@
     <title>UniHelp Forum - Calculus</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script type="module" src="scripts/username.js" defer></script>
 </head>
 <body>
 <div class="container">
@@ -64,7 +63,28 @@
         <header>
             <input type="text" placeholder="Search...">
         </header>
-        <!-- Main content goes here -->
+        <div class="profile-form-container">
+            <h2>Update Profile</h2>
+            <form action="#" method="post" id="profile-form">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="role">Role:</label>
+                    <select id="role" name="role" required>
+                        <option value="" disabled selected>Select your role</option>
+                        <option value="Estudiante">Student</option>
+                        <option value="Profesor">Teacher</option>
+                    </select>
+                </div>
+                <button type="submit" class="save-button">Save Changes</button>
+            </form>
+        </div>
     </div>
 </div>
 </body>

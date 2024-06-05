@@ -102,8 +102,6 @@ async function sendMessage() {
             });
 
             if (nickname) {
-                addMessage(message, 'user', nickname);
-
                 // Guardar el mensaje en la base de datos
                 await addDoc(collection(db, "chats"), {
                     mensaje: message,
