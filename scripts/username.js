@@ -1,9 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
-import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, query, where, getDocs, collection } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// Tu configuración de Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyDj01lpS0GIdkvVJNU4Ivb4uuC0GR3OooU",
     authDomain: "login-ed957.firebaseapp.com",
@@ -20,38 +19,28 @@ const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Función para obtener y mostrar el nombre de usuario
-function displayUsername(uid) {
-    const userDocRef = doc(db, "users", uid);
-    getDoc(userDocRef).then((docSnap) => {
-        if (docSnap.exists()) {
-            const userData = docSnap.data();
-            document.querySelector('.username').textContent = userData.username;
-            document.querySelector('.user-role').textContent = userData.type;
+// Función para leer el nickname del usuario desde Firestore
+async function read_data(user) {
+    const q = query(collection(db, "user"), where("email", "==", user.email));
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach((doc) => {
+        if (doc.exists()) {
+            const nickname = doc.data().nickname;
+            document.getElementById("username").textContent = nickname;
         } else {
             console.log("No such document!");
         }
-    }).catch((error) => {
-        console.log("Error getting document:", error);
     });
 }
 
-// Verificar el estado de autenticación del usuario
+// Escuchar cambios en la autenticación del usuario
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        // Usuario está logueado, obtener y mostrar el nombre de usuario
-        displayUsername(user.uid);
+        // Usuario autenticado, llamar a la función para leer el nickname
+        read_data(user);
     } else {
-        // Redirigir al usuario a la página de login si no está autenticado
-        window.location.href = 'login.html';
+        // No hay usuario autenticado, redirigir a la página de inicio de sesión
+        window.location.href = "login.html";
     }
-});
-
-// Agregar funcionalidad al botón de logout
-document.querySelector('.logout').addEventListener('click', () => {
-    signOut(auth).then(() => {
-        window.location.href = 'login.html';
-    }).catch((error) => {
-        console.log("Error signing out:", error);
-    });
 });

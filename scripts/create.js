@@ -37,6 +37,7 @@ document.getElementById('submit').addEventListener('click', function (event) {
       return addDoc(collection(db, "user"), {
         nickname: username,
         email: email,
+        type: type
       });
     })
     .then(() => {
