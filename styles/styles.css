@@ -37,8 +37,10 @@ header {
     background-color: #444;
     padding: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 header input {
@@ -359,73 +361,178 @@ nav ul li a:hover {
     background-color: #00B13C;
 }
 
-/* Estilos para el encabezado del contenido principal */
-.header-container {
-    background-color: #444; /* Color de fondo */
-    padding: 10px; /* Relleno alrededor del contenido */
-    display: flex; /* Usa flexbox para alinear elementos */
-    justify-content: center; /* Centra los elementos horizontalmente */
-    align-items: center; /* Centra los elementos verticalmente */
+/* Encabezado */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-/* Estilos para la sección del calendario */
-.calendar {
-    background-color: #333; /* Color de fondo */
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 20px; /* Relleno alrededor del contenido */
-    margin-bottom: 20px; /* Margen debajo del calendario */
-    /* Añade más estilos según sea necesario */
+header input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    margin-right: 20px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
 }
 
-/* Estilos para las notas */
-.notes {
-    background-color: #333; /* Color de fondo */
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 20px; /* Relleno alrededor del contenido */
-    margin-bottom: 20px; /* Margen debajo de las notas */
-    /* Añade más estilos según sea necesario */
+header button {
+    background-color: #00c853;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-/* Estilos para los botones de añadir y guardar notas */
-.add-note-button, .save-note-button {
-    background-color: #00B13C; /* Color de fondo */
-    color: white; /* Color del texto */
-    padding: 10px 20px; /* Relleno alrededor del texto */
-    border-radius: 5px; /* Bordes redondeados */
-    border: none; /* Sin bordes */
-    cursor: pointer; /* Cursor en forma de mano al pasar el ratón */
-    transition: background-color 0.3s; /* Transición suave del color de fondo */
+
+header .user-info {
+    display: flex;
+    align-items: center;
 }
 
-/* Estilos para el botón de eliminar notas */
+header .user-info .username {
+    margin-right: 10px;
+}
+
+/* Contenido principal */
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Contenedor de elementos */
+.calendar,
+.notes,
+.subjects,
+.alerts {
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Títulos de sección */
+.calendar h2,
+.notes h2,
+.subjects h2,
+.alerts h2 {
+    margin-top: 0;
+    font-size: 24px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Botones de editar y eliminar */
+.edit-alert-button,
+.delete-alert-button,
+.edit-note-button,
 .delete-note-button {
-    background-color: #c90028; /* Color de fondo */
-    color: white; /* Color del texto */
-    padding: 10px 20px; /* Relleno alrededor del texto */
-    border-radius: 5px; /* Bordes redondeados */
-    border: none; /* Sin bordes */
-    cursor: pointer; /* Cursor en forma de mano al pasar el ratón */
-    transition: background-color 0.3s; /* Transición suave del color de fondo */
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 14px;
 }
 
-/* Estilos para los elementos de alerta */
+.edit-alert-button,
+.edit-note-button {
+    background-color: #4caf50; /* Verde para editar */
+    color: white;
+}
+
+.delete-alert-button,
+.delete-note-button {
+    background-color: #f44336; /* Rojo para eliminar */
+    color: white;
+}
+
+
+.calendar, .notes, .subjects, .alerts {
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.calendar h2, .notes h2, .subjects h2, .alerts h2 {
+    margin-top: 0;
+    font-size: 24px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+
+/* Botones de agregar y guardar notas */
+.add-note-button, .save-note-button {
+    background-color: #00B13C;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px; /* Espacio entre botones */
+}
+
+/* Botón de eliminar nota */
+.delete-note-button {
+    background-color: #c90028;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Elementos de alerta */
 .alert-item {
-    background-color: #444; /* Color de fondo */
-    padding: 15px; /* Relleno alrededor del contenido */
-    border-radius: 5px; /* Bordes redondeados */
-    margin-bottom: 10px; /* Margen debajo de cada alerta */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    background-color: #4444448d;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 800px; /* Ajusta el ancho máximo según sea necesario */
 }
 
-/* Estilos para los botones de editar y eliminar alertas */
+/* Botones de editar y eliminar alertas */
 .edit-alert-button, .delete-alert-button {
-    background-color: #00B13C; /* Color de fondo para editar */
-    color: white; /* Color del texto */
-    padding: 10px 20px; /* Relleno alrededor del texto */
-    border-radius: 5px; /* Bordes redondeados */
-    border: none; /* Sin bordes */
-    cursor: pointer; /* Cursor en forma de mano al pasar el ratón */
-    transition: background-color 0.3s; /* Transición suave del color de fondo */
+    background-color: #00B13C;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-right: 10px; /* Espacio entre botones */
 }
 
-/* Asegúrate de ajustar los nombres de las clases y los selectores según corresponda a tu estructura HTML. */
+.edit-alert-button:hover {
+    background-color: #019231;
+}
+
+.delete-alert-button:hover {
+    background-color: #DC143C;
+}
+
+.delete-alert-button {
+    background-color: #c90028;
+}
+
+
+
+/* Icono de calendario */
+.calendar-icon {
+    font-size: 1.2em;
+    margin-left: 5px;
+}
