@@ -25,7 +25,7 @@ const chatInput = document.querySelector('.chat-input input');
 const chatMessages = document.querySelector('.chat-messages');
 
 // Función para agregar un mensaje al chat
-function addMessage(message, sender, username) {
+function addMessage(message, sender, username, messageTime) {
     const messageElement = document.createElement('div');
     messageElement.classList.add('message');
 
@@ -47,13 +47,14 @@ function addMessage(message, sender, username) {
 
     const messageContent = document.createElement('div');
     messageContent.classList.add('message-content');
-    messageContent.innerHTML = `<p>${message}</p><span class="timestamp">${getCurrentTime()}</span>`;
+    messageContent.innerHTML = `<p>${message}</p><span class="timestamp">${messageTime}</span>`;
 
     messageElement.appendChild(avatarContainer);
     messageElement.appendChild(messageContent);
 
     chatMessages.appendChild(messageElement);
 }
+
 
 // Función para obtener la hora actual en formato HH:MM
 function getCurrentTime() {
@@ -71,12 +72,16 @@ async function loadMessages() {
     querySnapshot.forEach((doc) => {
         if (doc.exists()) {
             const messageData = doc.data();
-            addMessage(messageData.mensaje, 'user', messageData.user);
+            const messageTime = messageData.date.toDate(); // Convertir la fecha de Firebase a objeto Date
+            const messageTimeString = messageTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // Formatear la hora a HH:MM
+            const messageContent = messageData.mensaje; // Concatenar el mensaje y la hora
+            addMessage(messageContent, 'user', messageData.user, messageTimeString);
         } else {
             console.log("No such document!");
         }
     });
 }
+
 
 // Función para enviar un mensaje
 async function sendMessage() {
@@ -109,8 +114,13 @@ async function sendMessage() {
                     date: timestamp
                 });
 
+                // Obtener la hora formateada
+                const hours = timestamp.getHours().toString().padStart(2, '0');
+                const minutes = timestamp.getMinutes().toString().padStart(2, '0');
+                const messageTime = `${hours}:${minutes}`;
+
                 // Imprimir el mensaje en el chat
-                addMessage(message, 'user', nickname);
+                addMessage(message, 'user', nickname, messageTime);
 
                 chatInput.value = ''; // Limpiar el campo de entrada después de enviar el mensaje
             } else {
@@ -121,6 +131,7 @@ async function sendMessage() {
         }
     }
 }
+
 
 
 // Event listener para enviar un mensaje cuando se presiona Enter

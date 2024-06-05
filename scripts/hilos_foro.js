@@ -25,40 +25,40 @@ const threadList = document.querySelector('.question-list');
 
 // Función para cargar los hilos del foro desde Firestore
 async function loadThreads() {
-  const querySnapshot = await getDocs(collection(db, "foro"));
-  
-  querySnapshot.forEach((doc) => {
-      const threadData = doc.data();
-      
-      const threadItem = document.createElement('div');
-      threadItem.classList.add('question-item');
+    const querySnapshot = await getDocs(collection(db, "foro"));
+    
+    querySnapshot.forEach((doc) => {
+        const threadData = doc.data();
+        
+        const threadItem = document.createElement('div');
+        threadItem.classList.add('question-item');
 
-      const threadInfo = document.createElement('div');
-      threadInfo.classList.add('question-info');
+        const threadInfo = document.createElement('div');
+        threadInfo.classList.add('question-info');
 
-      const titleElement = document.createElement('h4');
-      titleElement.textContent = threadData.title;
+        const titleElement = document.createElement('h4');
+        titleElement.textContent = threadData.title;
 
-      const userElement = document.createElement('p');
-      userElement.innerHTML = `Posted by <strong>${threadData.user}</strong>`;
+        const userElement = document.createElement('p');
+        userElement.innerHTML = `Posted by <strong>${threadData.user}</strong>`;
 
-      const textElement = document.createElement('p');
-      textElement.textContent = threadData.text;
+        const textElement = document.createElement('p');
+        textElement.textContent = threadData.text;
 
-      const viewThreadLink = document.createElement('a');
-      viewThreadLink.href = `thread.html?threadId=${doc.id}`;
-      viewThreadLink.textContent = 'View Question';
-      viewThreadLink.classList.add('enter-btn');
+        const viewThreadLink = document.createElement('a');
+        viewThreadLink.href = `thread.html?threadId=${doc.id}`;
+        viewThreadLink.textContent = 'View Thread';
+        viewThreadLink.classList.add('enter-btn');
 
-      threadInfo.appendChild(titleElement);
-      threadInfo.appendChild(userElement);
-      threadInfo.appendChild(textElement);
-      threadInfo.appendChild(viewThreadLink);
+        threadInfo.appendChild(titleElement);
+        threadInfo.appendChild(userElement);
+        threadInfo.appendChild(textElement);
+        threadInfo.appendChild(viewThreadLink);
 
-      threadItem.appendChild(threadInfo);
+        threadItem.appendChild(threadInfo);
 
-      threadList.appendChild(threadItem);
-  });
+        threadList.appendChild(threadItem);
+    });
 }
 
 // Llama a la función para cargar los hilos cuando la página se cargue
