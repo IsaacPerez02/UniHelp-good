@@ -46,8 +46,8 @@ async function loadThreads() {
       textElement.textContent = threadData.text;
 
       const viewThreadLink = document.createElement('a');
-      viewThreadLink.href = `question1.html?threadId=${doc.id}`; // Modificar la referencia para redirigir a question1.html
-      viewThreadLink.textContent = 'View Thread';
+      viewThreadLink.href = `question1.html?threadId=${doc.id}`;
+      viewThreadLink.textContent = 'View Question';
       viewThreadLink.classList.add('enter-btn');
 
       threadInfo.appendChild(titleElement);
