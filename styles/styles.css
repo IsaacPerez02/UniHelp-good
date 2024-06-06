@@ -422,7 +422,7 @@ header .user-info .username {
 }
 
 .subject-item {
-    background-color: #666;
+    background-color: #4444448d; /* Un tono cálido y suave similar al color de la fotografía */
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
@@ -436,20 +436,19 @@ header .user-info .username {
 .subject-item h3 {
     margin: 0;
     font-size: 18px;
-    color: #333;
+    color: white;
 }
 
 .subject-item p {
     margin: 5px 0 0;
     font-size: 14px;
-    color: #1d1d1d;
+    color: white;
 }
 
 
 /* Contenedor de elementos */
 .calendar,
 .notes,
-.subjects,
 .alerts {
     background-color: #2c2c2c;
     padding: 20px;
@@ -460,7 +459,6 @@ header .user-info .username {
 /* Títulos de sección */
 .calendar h2,
 .notes h2,
-.subjects h2,
 .alerts h2 {
     margin-top: 0;
     font-size: 24px;
@@ -495,7 +493,7 @@ header .user-info .username {
 }
 
 
-.calendar, .notes, .subjects, .alerts {
+.calendar, .notes, .alerts {
     background-color: #2c2c2c;
     padding: 20px;
     border-radius: 10px;
