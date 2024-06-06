@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script type="module" src="scripts/username.js" defer></script>
+    <script type="module" src="scripts/hilo.js" defer></script>
+
 </head>
 <body>
 <div class="container">
@@ -65,26 +67,19 @@
             <input type="text" placeholder="Search...">
         </header>
         <div class="main-content">
-            <div class="question">
+            <div class="question" id="question-container"> <!-- Agregamos un identificador al contenedor de la pregunta -->
                 <h2>How to find the limit of a function as x approaches infinity?</h2>
                 <p>Posted by <strong>Alice</strong> on June 1, 2024</p>
                 <p>I need help understanding how to find the limit of a function as x approaches infinity. Can someone explain the steps involved?</p>
             </div>
-            <div class="responses">
+            <div class="responses" id="responses-container"> <!-- Agregamos un identificador al contenedor de las respuestas -->
                 <h3>Responses</h3>
-                <div class="response-item">
-                    <p><strong>Bob:</strong> To find the limit of a function as x approaches infinity, you need to analyze the behavior of the function for very large values of x. One common method is to divide every term by the highest power of x in the denominator.</p>
-                    <p>Posted on June 2, 2024</p>
-                </div>
-                <div class="response-item">
-                    <p><strong>Charlie:</strong> Another approach is to use L'Hôpital's Rule if you encounter an indeterminate form like 0/0 or ∞/∞. This rule allows you to take the derivative of the numerator and the denominator until you can evaluate the limit.</p>
-                    <p>Posted on June 3, 2024</p>
-                </div>
+                <!-- Aquí se cargarán las respuestas dinámicamente desde JavaScript -->
             </div>
             <div class="new-response">
                 <h3>Your Response</h3>
-                <textarea placeholder="Write your response here..."></textarea>
-                <button>Submit Response</button>
+                <textarea id="response-input" placeholder="Write your response here..."></textarea>
+                <button id="submit-response-btn">Submit Response</button>
             </div>
         </div>
     </div>

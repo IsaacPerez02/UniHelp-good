@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script type="module" src="scripts/username.js" defer></script>
-    <script type="module" src="scripts/chat.js" defer></script>
+    <script type="module" src="scripts/myprofile.js" defer></script>
 </head>
 <body>
 <div class="container">
@@ -19,7 +19,7 @@
         <div class="user-container">
             <img src="pictures/student.png" alt="User" class="user-img">
             <div class="user-info">
-                <h1 id="username" class="username"></h1>
+                <h1 id="username" class="username">Nombre del usuario</h1>
                 <span class="user-role">Student</span>
             </div>
             <button class="config"><i class="fas fa-cog"></i></button>
@@ -66,28 +66,25 @@
             <input type="text" placeholder="Search...">
         </header>
         <div class="profile-form-container">
-            <h2>Update Profile</h2>
-            <form action="#" method="post" id="profile-form">
+            <h2>Profile Information</h2>
+            <div class="profile-data">
                 <div class="form-group">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
+                    <label for="display-username">Username:</label>
+                    <p id="display-username" contenteditable="true"></p>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="display-email">Email:</label>
+                    <p id="display-email" contenteditable="true"></p>
                 </div>
                 <div class="form-group">
-                    <label for="role">Role:</label>
-                    <select id="role" name="role" required>
-                        <option value="" disabled selected>Select your role</option>
-                        <option value="Estudiante">Student</option>
-                        <option value="Profesor">Teacher</option>
-                    </select>
+                    <label for="display-role">Role:</label>
+                    <p id="display-role" contenteditable="true"></p>
                 </div>
-                <button type="submit" class="save-button">Save Changes</button>
-            </form>
+                <button class="save-button" onclick="saveChanges()">Save Changes</button>
+            </div>
         </div>
     </div>
 </div>
 </body>
 </html>
+

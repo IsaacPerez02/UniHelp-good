@@ -167,7 +167,7 @@ function setupNoteActions() {
 function setupLogoutButton() {
     const logoutButton = document.querySelector('.logout');
     logoutButton.addEventListener('click', () => {
-        alert('Logout button clicked');
+        window.location.href = "bienvenida.html"
     });
 }
 
