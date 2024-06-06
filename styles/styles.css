@@ -413,6 +413,39 @@ header .user-info .username {
     gap: 20px;
 }
 
+/* Estilos para los enlaces de los cursos */
+.subjects {
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.subject-item {
+    background-color: #666;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.subject-item:hover {
+    background-color: #1d1d1d;
+}
+
+.subject-item h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.subject-item p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #1d1d1d;
+}
+
+
 /* Contenedor de elementos */
 .calendar,
 .notes,
