@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setupSearchInput();
     setupNewEntryButton();
     setupAddNoteButton();
-    setupLogoutButton();
     setupProfileSummaryToggle();
     setupNoteActions();
     setupAlertActions();
@@ -161,13 +160,6 @@ function setupNoteActions() {
 
         saveButton.addEventListener('click', () => saveNote(noteItem));
         deleteButton.addEventListener('click', () => deleteNote(noteItem));
-    });
-}
-
-function setupLogoutButton() {
-    const logoutButton = document.querySelector('.logout');
-    logoutButton.addEventListener('click', () => {
-        window.location.href = "bienvenida.html"
     });
 }
 

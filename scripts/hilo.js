@@ -24,20 +24,23 @@ const responsesContainer = document.getElementById('responses-container');
 
 // Función para agregar un mensaje al chat
 function addMessage(message, username, messageTime) {
-    const messageElement = document.createElement('div');
-    messageElement.classList.add('response-item');
+    if (username && message) { // Verificar si el usuario y el mensaje no están vacíos
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('response-item');
 
-    const messageContent = document.createElement('p');
-    messageContent.innerHTML = `<strong>${username}:</strong> ${message}`;
+        const messageContent = document.createElement('p');
+        messageContent.innerHTML = `<strong>${username}:</strong> ${message}`;
 
-    const messageTimestamp = document.createElement('p');
-    messageTimestamp.textContent = `${messageTime}`;
+        const messageTimestamp = document.createElement('p');
+        messageTimestamp.textContent = `${messageTime}`;
 
-    messageElement.appendChild(messageContent);
-    messageElement.appendChild(messageTimestamp);
+        messageElement.appendChild(messageContent);
+        messageElement.appendChild(messageTimestamp);
 
-    responsesContainer.appendChild(messageElement); // Agregar mensaje al contenedor de respuestas
+        responsesContainer.appendChild(messageElement); // Agregar mensaje al contenedor de respuestas
+    }
 }
+
 
 // Función para cargar los mensajes desde Firestore
 async function loadMessages() {
@@ -50,7 +53,7 @@ async function loadMessages() {
             const messageTime = messageData.date.toDate(); // Convertir la fecha de Firebase a objeto Date
             const messageTimeString = messageTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // Formatear la hora a HH:MM
             const messageContent = messageData.message; // Concatenar el mensaje y la hora
-            addMessage(messageContent, messageData.nickname, messageTimeString);
+            addMessage(messageContent, messageData.user, messageTimeString);
         } else {
             console.log("No such document!");
         }
